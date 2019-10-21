@@ -49,3 +49,27 @@ console.log("\n");
 //Difference between null and undefined
 console.log(null == undefined);
 console.log(null === undefined);
+
+console.log("\n");
+
+//const
+// const PI;
+// PI = 3.14; --> ERROR
+
+const PI = 3.14; // Assign a value when they are declared
+console.log(PI);
+
+console.log("\n");
+
+//Change properties of constant objects
+const car = {
+  type: "Fiat",
+  model: "500",
+  color: "Black"
+}
+console.log(JSON.stringify(car));
+car.color = "Red";
+console.log(JSON.stringify(car));
+
+// const car = {type: "Fiat", color: "Black"};
+// car = {type: "Fiat", color: "Red"}; -->ERROR
