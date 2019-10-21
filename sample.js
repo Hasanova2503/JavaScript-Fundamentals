@@ -43,3 +43,9 @@ console.log(typeof(undefValue));
 console.log(typeof(id));
 console.log(typeof(alert));
 console.log(typeof(Date));
+
+console.log("\n");
+
+//Difference between null and undefined
+console.log(null == undefined);
+console.log(null === undefined);
