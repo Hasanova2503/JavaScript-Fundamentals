@@ -140,3 +140,27 @@ switch(count1) {
     console.log("Not expected output");
     break;
 }
+
+console.log("\n");
+
+//for loop
+console.log("FOR LOOP");
+for(let i = 0; i < 3; i++) {
+  console.log(i);
+}
+
+//while loop
+console.log("WHILE LOOP");
+i = 0;
+while(i < 3) {
+  console.log(i);
+  i++;
+}
+
+//do-while loop --> exit controlled loop(executed at least once)
+console.log("DO WHILE LOOP");
+i = 0;
+do {
+  console.log(i);
+  i++;
+} while(i < 3);
