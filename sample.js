@@ -1,3 +1,5 @@
+'use strict';
+
 //Hello World
 console.log("Hello World");
 
@@ -67,9 +69,10 @@ const car = {
   model: "500",
   color: "Black"
 }
-console.log(JSON.stringify(car));
+// console.log(JSON.stringify(car));
+console.log(car);
 car.color = "Red";
-console.log(JSON.stringify(car));
+console.log(car);
 
 // const car = {type: "Fiat", color: "Black"};
 // car = {type: "Fiat", color: "Red"}; -->ERROR
@@ -151,7 +154,7 @@ for(let i = 0; i < 3; i++) {
 
 //while loop
 console.log("WHILE LOOP");
-i = 0;
+let i = 0;
 while(i < 3) {
   console.log(i);
   i++;
@@ -164,3 +167,32 @@ do {
   console.log(i);
   i++;
 } while(i < 3);
+
+// const person = {
+//   name: "HMS",
+//   age: 22
+// }
+// console.log(person);
+
+//Use strict will throw error here --> Reference Type --> g is not defined
+// g = 50;
+
+let g = 50;
+
+//Assigning to NaN will throw exception in strict mode --> TypeError--> non-writable global & property
+// undefined = 5;
+
+//TypeError deleting undeletable properties
+// delete Object.prototype;
+
+//Duplicate parameter not allowed in function
+
+//Simplify variable uses
+var evalG = eval("'use strict'; let g = 42; g;");
+console.log(g === 50);
+console.log(evalG === 42);
+
+//delete undefined names result in error
+let h;
+// delete h; //SYNTAX ERROR
+//writing secure code
