@@ -267,3 +267,65 @@ console.log(isNaN(5));
 console.log(isFinite("5"));
 console.log(isFinite(6));
 console.log(isFinite(undefined));
+
+console.log("\n");
+
+//String --> Immutable
+const fName = "Hasan";
+const lName = "Mo";
+val = fName + lName;
+
+//Concatencation
+val = fName + ' ' + lName;
+
+//Append
+val = "Apple";
+val += "Mango";
+
+//Escaping
+val = 'That\'s awesome. Let\'s wait';
+
+//Length
+val = fName.length;
+console.log(val);
+
+//Concat
+val = fName.concat(' ', lName);
+console.log(val);
+
+//change case
+val = fName.toLowerCase();
+console.log(val);
+
+//Index
+val = fName[0];
+console.log(val);
+
+//indexOf
+console.log(lName.indexOf('o'));
+console.log(fName.lastIndexOf('a'));
+
+//charAt
+console.log(fName.charAt(1));
+
+//get last char
+console.log(fName.charAt(fName.length - 1));
+
+//substring
+console.log(fName.substr(1, 3));
+
+//search
+console.log(fName.search('a'));
+
+//slice
+console.log(fName.slice(0, 3));
+console.log(fName.slice(-2));
+
+//split
+console.log(("Hello I am HMS").split(' '));
+
+//replace
+console.log(fName.replace("asan", "ajra"));
+
+//unicode
+console.log("\u{1F60D}");
