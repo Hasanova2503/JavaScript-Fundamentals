@@ -224,4 +224,29 @@ h = (5).toString();
 h = Number('5');
 console.log(h);
 console.log(typeof(h));
-console.log(h.toFixed(2));
+console.log(h.toFixed(2)); // decimal points
+
+console.log("\n");
+
+// Number and math object
+const num1 = 100
+const num2 = 50;
+let val;
+val = num1 + num2;
+val = num1 - num2;
+val = num1 * num2;
+val = num1 / num2;
+val = num1 % num2;
+
+//Math Object
+val = Math.PI;
+val = Math.E;
+val = Math.round(2.8);
+val = Math.ceil(2.8);
+val = Math.floor(2.8);
+val = Math.sqrt(64);
+val = Math.abs(-3);
+val = Math.max(1, 5 ,324 ,325, 45, 56);
+val = Math.floor(Math.random() * 20 + 1);
+
+console.log(val);
