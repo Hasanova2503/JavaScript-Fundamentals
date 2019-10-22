@@ -61,7 +61,7 @@ console.log(PI);
 
 console.log("\n");
 
-//Change properties of constant objects
+//Change properties of constant objects (Arrays)
 const car = {
   type: "Fiat",
   model: "500",
@@ -73,3 +73,21 @@ console.log(JSON.stringify(car));
 
 // const car = {type: "Fiat", color: "Black"};
 // car = {type: "Fiat", color: "Red"}; -->ERROR
+
+console.log("\n");
+
+//Unary plus for string and numbers
+let a = -1;
+console.log(-a);
+let b = "2";
+let c = "3";
+console.log(b + c);
+console.log(+b + +c);
+
+console.log("\n");
+
+//Binary plus for string and numbers
+let d = "my" + "String";
+console.log(d);
+console.log(1 + 2 + "H");
+console.log("H" + 1 + 2);
