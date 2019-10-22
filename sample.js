@@ -225,6 +225,12 @@ h = Number('5');
 console.log(h);
 console.log(typeof(h));
 console.log(h.toFixed(2)); // decimal points
+console.log(Boolean("0"));
+console.log(Boolean("asd"));
+console.log(Boolean(5));
+console.log(Boolean(null));
+console.log(Boolean(undefined));
+console.log(Boolean(NaN));
 
 console.log("\n");
 
@@ -250,3 +256,14 @@ val = Math.max(1, 5 ,324 ,325, 45, 56);
 val = Math.floor(Math.random() * 20 + 1);
 
 console.log(val);
+console.log(7.3e8);
+console.log(0xff);
+console.log(0b11111111 == 0o377);
+console.log(0.1 + 0.2 == 0.3);
+console.log(parseInt("100def"));
+console.log(typeof(+"5"));
+console.log(isNaN("str"));
+console.log(isNaN(5));
+console.log(isFinite("5"));
+console.log(isFinite(6));
+console.log(isFinite(undefined));
