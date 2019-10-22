@@ -104,3 +104,39 @@ console.log(`e = ${e} f = ${f} count = ${count}`);
 e = --count;
 f = count--;
 console.log(`e = ${e} f = ${f} count = ${count}`);
+
+console.log("\n");
+
+// if-else
+count = 0;
+if(e == f) {
+  count = e + f;
+}
+else {
+  count = 0;
+}
+console.log(count);
+
+//Using ternary operator
+count = 0;
+count = (e == f)? count + 2: 0;
+console.log(count);
+
+//switch
+count = 0;
+let count1 = count++ + ++count;
+console.log(count1);
+switch(count1) {
+  case 0:
+    console.log("Count1 is 0");
+    break;
+  case 1:
+    console.log("Count1 is 1");
+    break;
+  case 2:
+    console.log(`Count is ${count1}`);
+    break;
+  default:
+    console.log("Not expected output");
+    break;
+}
