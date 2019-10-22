@@ -196,3 +196,32 @@ console.log(evalG === 42);
 let h;
 // delete h; //SYNTAX ERROR
 //writing secure code
+
+console.log("\n");
+
+//TYPE Conversion
+h = 5;
+console.log(h);
+console.log(typeof(h));
+console.log(h.length);
+
+//Number to String
+h = String(5);
+console.log(h);
+console.log(typeof(h));
+console.log(h.length);
+
+//Boolean to String
+h = String(true);
+
+//Array to String
+h = String([1, 2, 3, 4]);
+
+//toString
+h = (5).toString();
+
+//String to Number
+h = Number('5');
+console.log(h);
+console.log(typeof(h));
+console.log(h.toFixed(2));
