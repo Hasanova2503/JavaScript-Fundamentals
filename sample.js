@@ -329,3 +329,15 @@ console.log(fName.replace("asan", "ajra"));
 
 //unicode
 console.log("\u{1F60D}");
+
+console.log("\n");
+
+//Template literals
+let html
+html = `
+  <ul>
+    <li>FName: ${fName}</li>
+    <li>lName: ${lName}</li>
+  </ul>
+`;
+document.body.innerHTML = html;
