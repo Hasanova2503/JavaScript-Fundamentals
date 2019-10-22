@@ -91,3 +91,16 @@ let d = "my" + "String";
 console.log(d);
 console.log(1 + 2 + "H");
 console.log("H" + 1 + 2);
+
+console.log("\n");
+
+//Increment operator
+let count = 0;
+let e = count++;
+let f = ++count;
+console.log(`e = ${e} f = ${f} count = ${count}`);
+
+//decrement operator
+e = --count;
+f = count--;
+console.log(`e = ${e} f = ${f} count = ${count}`);
