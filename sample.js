@@ -231,6 +231,7 @@ console.log(Boolean(5));
 console.log(Boolean(null));
 console.log(Boolean(undefined));
 console.log(Boolean(NaN));
+console.log(Boolean(""));
 
 console.log("\n");
 
@@ -341,3 +342,64 @@ html = `
   </ul>
 `;
 document.body.innerHTML = html;
+
+//Arrays
+const nums = [1, 5, 3, 6, 7];
+const nums2 = new Array(2, 435, 5, 546 ,654);
+const fruits = ["apple", "pear", "mango", "orange"];
+const mixedArray = [32, "happy", null, undefined, "sad", true, {name: "hms", age: 6}]
+
+console.log(mixedArray);
+
+//get array length
+console.log(nums.length);
+
+//check if array
+console.log(Array.isArray(fruits));
+
+//get particular element
+console.log(nums2[3]);
+
+//insert into array
+nums[2] = 10;
+
+//index of value
+console.log(fruits.indexOf("pear"));
+
+//mutating arrays
+//adding at the end
+nums2.push(100);
+console.log(nums2);
+//adding on front
+nums2.unshift(150);
+console.log(nums2);
+
+//delete from end
+nums2.pop();
+console.log(nums2);
+//delete from front
+nums2.shift();
+console.log(nums2);
+
+//splice
+console.log(nums2.splice(1, 3));
+
+//reverse
+console.log(nums.reverse());
+
+//concatenate array
+console.log(nums.concat(nums2));
+
+//sorting
+console.log(fruits.sort());
+console.log(nums.sort());
+
+//compare function
+console.log(nums.sort(function(x, y) {
+  return x - y;
+}));
+
+//reverse sort
+console.log(nums.sort(function(x, y){
+  return y - x;
+}))
