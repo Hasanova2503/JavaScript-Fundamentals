@@ -403,3 +403,37 @@ console.log(nums.sort(function(x, y) {
 console.log(nums.sort(function(x, y){
   return y - x;
 }))
+
+console.log("\n");
+
+//Object literals
+const pers = {
+  fName: 'Hasan',
+  lName: 'Shahid',
+  age: 22,
+  hobbies: ["music", "sports", "coding"],
+  address: {
+    city: 'Delhi',
+    state: "Delhi"
+  },
+  getNumber: function() {
+    return 2019 - this.age;
+  }
+}
+console.log(pers);
+console.log(pers.fName);
+console.log(pers['fName']);
+console.log(pers["hobbies"][0]);
+console.log(pers.address.city);
+console.log(pers.getNumber());
+
+//Arrays of objects
+const personNew = [
+  {name: 'hasan', age:22},
+  {name: 'raj', age:23, city: "Delhi"}
+];
+console.log(personNew);
+console.log(personNew.length);
+for(let i in personNew) {
+  console.log(personNew[i]);
+}
