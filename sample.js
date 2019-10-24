@@ -609,3 +609,26 @@ console.log(window.navigator);
 console.log(window.navigator.appName);
 console.log(window.navigator.appVersion);
 console.log(window.navigator.platform);
+
+//scope
+//Global scope
+var ab = 1;
+let bc = 2;
+const cd = 3;
+
+function test() {
+  var ab = 4;
+  let bc = 5;
+  const cd = 6;
+  console.log("Local scope:", ab, bc, cd);
+}
+test();
+
+if(true) {
+  var ab = 4;
+  let bc = 5;
+  const cd = 6;
+  console.log("If block:", ab, bc, cd);
+}
+
+console.log("Global scope:", ab, bc, cd);
