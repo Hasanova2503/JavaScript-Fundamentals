@@ -468,3 +468,14 @@ console.log("\n");
 if(typeof(hell) === 'undefined') {
   console.log("Not defined");
 }
+
+console.log("\n");
+
+//Function declarations
+function greet(fName = "XYZ", lName = "ABC") {
+  // console.log("Hello");
+  return `Hello ${fName} ${lName}`;
+}
+console.log(greet());
+console.log(greet("hasan"));
+console.log(greet("hasan", "shahid"));
