@@ -479,3 +479,15 @@ function greet(fName = "XYZ", lName = "ABC") {
 console.log(greet());
 console.log(greet("hasan"));
 console.log(greet("hasan", "shahid"));
+
+//Function Expressions --> Hoisting and Closure
+const sqr = function (x) {
+  return x * x;
+}
+console.log(sqr(3)); 
+
+// Immidiately invokable function expressions -->IIFE --> Run at same time
+(function (fName = "XYZ") {
+  console.log("IIFE");
+  console.log(`Hello ${fName}`);
+})("Hasan");
