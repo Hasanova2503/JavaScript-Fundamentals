@@ -507,3 +507,29 @@ toDo.delete = function () {
 toDo.add();
 toDo.edit();
 toDo.delete();
+
+console.log("\n");
+
+// Symbol type --> unique identfier
+val = Symbol("val");
+console.log(val.toString());
+console.log(val.description);
+console.log(val == Symbol("val"));
+
+//Hidden properties
+val = {
+  name: "HMS"
+};
+id = Symbol("Id");
+val[id] = 1;
+console.log(val[id]);
+
+val = {
+  name: "hasan",
+  [id]: 123
+};
+console.log(val);
+for(let key in val) {
+  console.log(key);
+  console.log(val[key]);
+}
