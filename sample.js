@@ -459,3 +459,12 @@ console.log(today.getTime()); // Timestamp
 dob.setMonth(1);
 dob.setDate(24);
 console.log(dob);
+console.log(new Date(Date.parse("1997-01-26")));
+console.log(new Date("1997-01-26 3:12"));
+
+console.log("\n");
+
+//Test if undefined
+if(typeof(hell) === 'undefined') {
+  console.log("Not defined");
+}
