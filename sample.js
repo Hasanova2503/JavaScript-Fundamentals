@@ -437,3 +437,25 @@ console.log(personNew.length);
 for(let i in personNew) {
   console.log(personNew[i]);
 }
+
+console.log("\n");
+
+//Date and objects
+const today = new Date();
+let dob = new Date('3-25-1997');
+dob = new Date("March 25 1997");
+console.log(today);
+console.log(typeof(today));
+console.log(dob);
+console.log(today.getMonth()); //starting from 0-11
+console.log(today.getDate());
+console.log(today.getDay());
+console.log(today.getFullYear());
+console.log(today.getHours());
+console.log(today.getMinutes());
+console.log(today.getSeconds());
+console.log(today.getTime()); // Timestamp
+
+dob.setMonth(1);
+dob.setDate(24);
+console.log(dob);
