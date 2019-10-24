@@ -533,3 +533,24 @@ for(let key in val) {
   console.log(key);
   console.log(val[key]);
 }
+
+//ForEach
+const cars = ["Toyota", "Honda", "Hyundai"];
+cars.forEach(function (car, index, array) {
+  console.log(`${car} : ${index}`);
+  console.log(array);
+});
+
+//Map
+const personN = [
+  {name: 'hasan', age:22},
+  {name: 'raj', age:23, city: "Delhi"}
+];
+let names = personN.map(function (person) {
+  return person.name;
+});
+console.log(names);
+for(let i in pers) {
+  console.log(i);
+  console.log(pers[i]);
+}
