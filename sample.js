@@ -491,3 +491,19 @@ console.log(sqr(3));
   console.log("IIFE");
   console.log(`Hello ${fName}`);
 })("Hasan");
+
+//Property Methods
+const toDo = {
+  add: function () {
+    console.log("Add");
+  },
+  edit: function () {
+    console.log("Edit");
+  }
+};
+toDo.delete = function () {
+  console.log("Delete");
+}
+toDo.add();
+toDo.edit();
+toDo.delete();
