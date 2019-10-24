@@ -554,3 +554,58 @@ for(let i in pers) {
   console.log(i);
   console.log(pers[i]);
 }
+
+console.log("\n");
+
+//Window Object
+window.console.log(123); //Already top of window
+
+//Alert
+// alert("Hello");
+
+//Prompt
+// val = prompt("Enter the value");
+// alert(val);
+
+//confirm
+// if(confirm('Are you sure?')) {
+//   console.log("Yes");
+// }
+// else {
+//   console.log("No");
+// }
+
+//Outer height and width
+console.log(window.outerHeight);
+console.log(window.outerWidth);
+
+//Inner height and width
+console.log(window.innerHeight);
+console.log(window.innerWidth);
+
+//Scrolls
+console.log(window.screenX);
+console.log(window.scrollY);
+
+//Location object
+console.log(window.location);
+console.log(window.location.href);
+console.log(window.location.hostname);
+console.log(window.location.search);
+
+//Window redirect
+// window.location.href = 'http://google.com';
+
+//window reload
+// window.location.reload();
+
+//history object
+// window.history.go(-1);
+
+console.log(window.history.length);
+
+//Navigator objects
+console.log(window.navigator);
+console.log(window.navigator.appName);
+console.log(window.navigator.appVersion);
+console.log(window.navigator.platform);
