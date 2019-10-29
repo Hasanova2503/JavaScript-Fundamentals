@@ -648,7 +648,9 @@ function Person(firstName, lastName) {
   this.greeting = function () {
     return `Hello ${this.fName} ${this.lName}`;
   }
+  console.log(this);
 }
+console.log(this);
 const has = new Person("Hasan", "Shah");
 console.log(has);
 const brad = new Person("Brad", "Pitt");
