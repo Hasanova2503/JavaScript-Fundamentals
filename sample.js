@@ -697,6 +697,10 @@ function Customer(firstName, lastName, age) {
 Customer.prototype = Object.create(Person2.prototype);
 Customer.prototype.constructor = Customer;
 
+Customer.prototype.greeting = function () {
+  return "Hello";
+}
+
 const cust1 = new Customer("tom", "smith", 30);
 console.log(cust1);
 console.log(cust1.greeting());
