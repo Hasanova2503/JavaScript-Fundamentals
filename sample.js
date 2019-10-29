@@ -704,3 +704,21 @@ Customer.prototype.greeting = function () {
 const cust1 = new Customer("tom", "smith", 30);
 console.log(cust1);
 console.log(cust1.greeting());
+
+//Object.create
+const personProps = {
+  greeting: function () {
+    return `Hello ${this.fName} ${this.lName}`;
+  }
+}
+const mary = Object.create(personProps);
+mary.fName = "Mary";
+mary.lName = "Smith";
+mary.age = 40;
+console.log(mary);
+console.log(mary.greeting());
+const brad4 = Object.create(personProps, {
+  fName: {value: "Brad"},
+  lName: {value: "PITTT"}
+});
+console.log(brad4);
