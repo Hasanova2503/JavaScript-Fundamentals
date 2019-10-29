@@ -1,0 +1,64 @@
+// Protoypes
+
+/*
+
+each object is js has a prototype and a prototype is an object itself.
+All objects inherit their properties and methods from their prototype.
+
+When dealing with object literals -> we are inheriting from Object.prototype
+When dealing with objects constructed from constructors -> we are inheriting from Person.prototype // Person was the example used as constructor
+
+*/
+
+
+function Person(firstName,lastName,dob){
+
+  this.firstName  = firstName;
+  this.lastName = lastName;
+  console.log(this);  // refers to the current instance of person
+
+  this.birthday = new Date(dob);
+ 
+}
+
+// Calculate Age 
+
+// calculate age sb persons k liye same hoga, isliye prototype mei daala
+
+Person.prototype.calculateAge =   function(){   
+
+    const diff = Date.now()-this.birthday.getTime ();
+    const ageDate = new Date(diff);
+    return Maths.abs(ageDate.getUTCFullYear() - 1970);
+  }
+
+
+Person.prototype.getFullName = function(){
+
+  return `${this.firstName} ${this.lastName}`;
+}
+
+Person.prototype.getsMarried = function(newLastName){
+
+  this.lastName =  newLastName;   // prototypes can also be used to manipulate prop
+
+}
+
+
+const john = new Person('John','agg','3-23-90');
+
+// prototype cannot be accessed in a for in loop
+
+
+console.log(john.calculateAge()); // gives age
+
+console.log(john.getFullName()); // John agg
+
+john.getsMarried('smith');
+
+console.log(john.getFullName()); // John smith
+
+
+
+
+

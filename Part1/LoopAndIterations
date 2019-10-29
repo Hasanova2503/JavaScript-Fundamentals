@@ -1,0 +1,67 @@
+loops
+1. for loop
+2. while loop
+3. do while loop
+
+// loop through array
+const cars = ['Ford', 'Alto', 'Creta'];
+
+for(let i=0;i<cars.length;i++){
+
+  console.log(cars[i]);
+}
+
+
+// for each loop
+
+cars.forEach(function(car){
+
+  console.log(car);  // gives the same output as above
+
+
+});
+
+cars.forEach(function(car,index){
+
+  console.log(`${index} : ${car}`);  // also prints index
+
+
+});
+
+
+//MAP
+// used for array of objects
+
+const users = [             // array of objects
+
+  {id:1,name:'John'},
+  {id:2, name:'Sara'},
+  {id:3,name:'Karen'}
+
+];  
+
+// array of ids from array of user objects
+const ids = users.map(function(user){
+
+  return user.id;
+
+});
+
+console.log(ids);
+
+
+// for in loop -> used for objects
+const user = {
+  firstName:'John',
+  lastName:'Doe',
+  age:40
+}
+
+
+for(let x in user){
+
+  console.log(x); //gives keys 
+
+  console.log(`${x} : ${user[x]}`);
+
+}

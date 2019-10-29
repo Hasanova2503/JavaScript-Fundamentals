@@ -1,0 +1,29 @@
+1.variables: var, let, const
+- https://dev.to/sarah_chima/var-let-and-const--whats-the-difference-69e
+- we can reassign variables using let, var
+- const cannot be reassigned
+- const needs to be initialized
+- we can change arrays and objects that are assigned to variables using const, but we cannot reassign them
+ex: const numbers = [1,2,3];
+numbers.push(4); // this is legal and numbers will now have [1,2,3,4]
+but we cannot do this now, numbers =[1,2,3,4];// as here we are reassigning const
+- therefore, we can mutate the const if it is an array or object, but still cannot reassign it.
+-any variable that is declared with var outside a function block is available for use in the whole window. var is function scoped when it is declared within a function. This means that it is available and can be accessed only within that function
+-var variables can be re-declared and updated. This means we can do this within the same scope:
+var greeter = "hey hi";
+var greeter = "say Hello instead"; 
+
+- let is block scoped
+- let can be updated but not re-declared within the same scope
+-const declarations are block scoped
+-const cannot be reassigned or re-declared within the same scope
+
+- summary
+var declarations are globally scoped or function scoped while let and const are block scoped.
+
+var variables can be reassigned and re-declared within its scope; let variables can be reassigned but not re-declared; const variables can neither be reassigned nor re-declared.
+
+var is hoisted at the top of its scope, but let and const are not hoisted.
+
+While var and let can be declared without being initialized, const must be initialized during declaration.
+

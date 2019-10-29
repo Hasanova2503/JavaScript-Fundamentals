@@ -1,0 +1,65 @@
+// windows objects/methods/properties
+
+
+// alert
+alert('hello');
+
+// prompt
+
+const input  = prompt('How are you ?');
+alert(input);
+
+
+// confirm
+
+if(confirm('Are you sure ?'))
+   alert('Yes');
+else
+   alert('No');
+
+
+
+let val;
+
+// Outer Height and width
+
+val = window.outerHeight;
+val = window.outerWidth;
+
+//Inner height and width
+val = window.innerHeight;
+val = window.innerWidth;
+
+
+// scroll points
+
+
+val = window.scrollY;
+val = window.scrollX;
+
+//location object
+
+val = window.location;
+val = winodw.location.hostname ; // will give the IP
+
+//redirect
+
+window.location.href = "http://google.com"
+
+// reload
+
+window.location.reload();
+
+// history object
+
+window.history.go(-2);  // goes back
+
+
+// history length
+
+val  = window.history.length;
+
+// navigator object
+val  =   window.navigator;
+
+val  = window.navigator.platform; // gives win32, mac, linux, depending on your os

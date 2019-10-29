@@ -1,0 +1,49 @@
+3. Type conversions
+
+-number to string
+we use String() and toString() functions
+
+ex : let val = String(5); // val is now holding a string 5 with length 1
+     val = (5).toString(); // another way of doing same thing
+
+
+- date to string
+val = String(new Date());
+
+- Array to string
+val = String([1,2,3,4]); 
+
+- bool to string
+val = String(true);
+
+ - string to number
+
+ val = Number('5'); // val is now holding number 5
+
+ - bool to Number
+ val = Number(true); // val is now holding 1;
+ val = Number(false); // val is now holding 0;
+ 
+
+ val = Number(null); // val is now holding 0;
+ val = Number (undefined); // val is now holding NaN => Not a number
+ val = Number("hello"); // val is holding NaN
+ val = Number([1,2,3]); // val is holding NaN
+
+ we can also use parseInt(), parseFloat()
+  ex: val = parseInt('100');
+
+
+  Implicit conversion
+  const v1 = 5;
+  const v2 = 6;
+
+  const v3 = v1+v2; // 11(Number);
+
+
+
+  const v1 = '5';
+  const v2 = 6;
+
+  const v3 = v1+v2; // 56(String);
+

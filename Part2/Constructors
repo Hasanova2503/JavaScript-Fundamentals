@@ -1,0 +1,26 @@
+// Constructors
+
+// to create multiple instances of create type of object, we create a Constructors
+
+// person constructor 
+
+function Person(name,dob){
+
+  this.name  = name;
+  console.log(this);  // refers to the current instance of person
+
+  this.birthday = new Date(dob);
+  this.calculateAge = function(){    // method within the constructor
+
+    const diff = Date.now()-this.birthday.getTime ();
+    const ageDate = new Date(diff);
+    return Maths.abs(ageDate.getUTCFullYear() - 1970);
+  }
+}
+
+console.log(this); // refers to window object
+
+const brad  = new Person('Brad','9-10-1981');
+const john = new Person('John','9/11/1982');
+console.log(brad.calculateAge());// gives the age
+

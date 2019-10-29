@@ -1,0 +1,28 @@
+4. Math operations and math object
+
+// simple math with numbers
+
+let val;
+const num1=100;
+const num2 = 50;
+val = num1+num2;
+val = num1-num2;
+val = num1/num2;
+val = num1*num2;
+val = num1%num2;
+
+
+
+// Math object
+Math.PI;  // 3.14
+Math.E;
+Math.round(2.4);   //2
+Math.floor(2.4);  //2
+Math.ceil(2.4);  //3
+Math.sqrt(64);   //8
+Math.abs(-3);   //3
+Math.pow(8,2);   //64
+Math.min(2,33,4,1,5);   //1
+Math.max(-1,0,4); //4
+Math.random(); // random number between 0 to 1;
+Math.floor(Math.random()*20 + 1); // random whole number between 1 to 20.

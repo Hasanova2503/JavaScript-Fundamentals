@@ -1,0 +1,55 @@
+
+8. Object literals
+
+const person = {
+
+  firstName: 'Rajat',
+  lastName: 'Aggarwal',
+  age: 24,
+  hobbies:['gym','sports'],     //array within object
+  email:'rajataggarwal95@gmail.com',
+  address : {                      // nested object
+    city:'Delhi',
+    state: 'New Delhi'
+  },
+
+  getBirthYear: function(){       // function within object
+
+    return 2019 - this.age;
+  }
+}
+
+
+let val;
+val = person;
+
+//get specific value
+val = person.firstName;   //Rajat
+val = person['lastName'];  // Aggarwal ->alternate syntax
+val = person.hobbies[1];   //sports
+val = person.address.state ; //New Delhi
+val = person.address['city']; // Delhi
+val = person.getBirthYear() ; // 1995
+
+// array of objects
+
+const people = [
+
+{name:'John',
+age:30},
+
+{
+  name:'Mike',
+  age:23
+}
+
+];
+
+
+//looping through array of objects
+
+for(let i=0;i<people.length;i++){
+
+  console.log(people[i].name);   // John Mike
+}
+

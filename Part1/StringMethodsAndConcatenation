@@ -1,0 +1,88 @@
+5. String methods & concatenation
+
+const firstName = "William";
+const lastName = "Johnson";
+
+let val;
+
+//concatenation
+val = firstName + ' ' + lastName;   // William Johnson
+
+
+//append
+val = 'Brad ';
+val+= 'Traversy';  // Brad Traversy
+
+var age = 36;
+
+
+val  = "hello my name is " + firstName + "and I am " + age;
+// hello mhy name is Brad and I am 36
+
+//escaping
+ val = "That's awesome";
+ val = 'That\'s awesome';
+
+
+ // length
+ val   =firstName.length; //7 -> length is a property and not method
+
+ //concat  
+ val = firstName.concat('',lastName); // William Johnson
+
+ //Change case
+
+ val = firstName.toUpperCase();
+ val = firstName.toLowerCase();
+
+ // strings can be treated as read-only arrays(read only bcz strings are immutable)
+
+val = firstName[0];  //W  
+
+//indexOf()  -> gives the index of characters in string from starting
+
+val = firstName.indexOf('W'); //0
+
+
+//lastIndexOf
+
+val  = firstName.lastIndexOf('W); //6
+
+//charAt();
+
+val = firstName.charAt('2'); // l 
+
+//get last char  
+val = firstName.charAt(firstName.length-1);//m
+
+
+//substring()
+
+val = firstName.substring(0,4); // Will 
+
+
+//slice()
+
+val = firstName.slice(0,4); //Will
+
+val = firstName.slice(-3); // iam -> gives last three
+
+
+
+// split()  -> split string into an array based on the separator
+
+const str = 'Hello there my name is Brad';
+val = str.split(''); // ["Hello","there","my","name","is","Brad"]
+
+const tags = 'web design, web development,programming';
+val = tags.split(',');//["web design","web development","programming"]
+
+// replace()
+
+val  = str.replace('Brad','rajat');// Hello there my name is rajat
+
+
+
+//includes()  -> givest true or false
+
+val = str.includes('Hello'); // true

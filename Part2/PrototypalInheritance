@@ -1,0 +1,63 @@
+// Prototypal Inheritance
+
+
+// Person constructor
+
+function Person(firstName,lastName){
+
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+
+// greeting
+
+
+Person.prototype.greeting = function(){
+
+  return `Hello there ${this.firstName} ${lastName}`;
+}
+
+
+const person1  = new Person('John','Doe');
+
+// Customer constructor
+
+function Customer(firstName,lastName,phone,membership){
+  
+  Person.call(this,firstName,lastName);
+
+  this.phone = phone;
+  this.membership = membership;
+
+}
+
+// inherit Person prototype methods
+
+Customer.prototype = Object.create(Person.prototype);
+
+// make Customer.prototype return Customer
+Customer.prototype.constructor = Customer;
+
+
+
+// create Customer
+
+const customer1 = new Customer('Tom','Smith','4546','standard');
+
+console.log(customer1); // will give the customer1 details
+
+console.log(customer1.greeting()); // Hello there Tom Smith
+
+
+// to create separate greeting for Customer i.e overriding
+
+Customer.prototype.greeting = function(){
+
+  return `Hello there ${this.firstName}  ${this.lastName} to our company`;
+}
+
+
+console.log(customer1.greeting()); // Hello there Tom Smith to our company
+
+
