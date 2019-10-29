@@ -640,6 +640,8 @@ const persObj = {
   fName: "Hasan",
   lName: "Shah"
 }
+// persObj.age = 30;
+// delete persObj.age;
 console.log(persObj);
 
 function Person(firstName, lastName) {
@@ -657,3 +659,19 @@ const brad = new Person("Brad", "Pitt");
 console.log(brad);
 console.log(has.greeting());
 console.log(brad.greeting());
+
+//Prototypes
+function Person1(firstName, lastName) {
+  this.fName = firstName;
+  this.lName = lastName;
+  console.log(this);
+}
+Person1.prototype.greeting = function() {
+  return `Hello ${this.fName} ${this.lName}`;
+}
+const brad1 = new Person1("Brad", "Pitt");
+const john = new Person1("John", "Doe");
+console.log(brad1);
+console.log(john);
+console.log(brad1.greeting());
+console.log(john.greeting());
