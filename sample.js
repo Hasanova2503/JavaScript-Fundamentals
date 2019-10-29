@@ -675,3 +675,28 @@ console.log(brad1);
 console.log(john);
 console.log(brad1.greeting());
 console.log(john.greeting());
+
+//Prototypical inheritance
+function Person2(firstName, lastName) {
+  this.fName = firstName;
+  this.lName = lastName;
+}
+Person2.prototype.greeting = function() {
+  return `Hello ${this.fName} ${this.lName}`;
+}
+const brad2 = new Person2("John", "Doe");
+console.log(brad2);
+console.log(brad2.greeting());
+
+function Customer(firstName, lastName, age) {
+  Person2.call(this, firstName, lastName);
+  this.age = age;
+}
+
+//Inherit the person prototype
+Customer.prototype = Object.create(Person2.prototype);
+Customer.prototype.constructor = Customer;
+
+const cust1 = new Customer("tom", "smith", 30);
+console.log(cust1);
+console.log(cust1.greeting());
