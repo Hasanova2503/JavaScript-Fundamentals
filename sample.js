@@ -632,3 +632,19 @@ if(true) {
 }
 
 console.log("Global scope:", ab, bc, cd);
+
+console.log("\n");
+
+//Constructor and new
+const persObj = {
+  fName: "Hasan",
+  lName: "Shah"
+}
+console.log(persObj);
+
+function Person() {
+  this.fName = "Hasan";
+  this.lName = "Shah";
+}
+const has = new Person();
+console.log(has);
