@@ -642,9 +642,16 @@ const persObj = {
 }
 console.log(persObj);
 
-function Person() {
-  this.fName = "Hasan";
-  this.lName = "Shah";
+function Person(firstName, lastName) {
+  this.fName = firstName;
+  this.lName = lastName;
+  this.greeting = function () {
+    return `Hello ${this.fName} ${this.lName}`;
+  }
 }
-const has = new Person();
+const has = new Person("Hasan", "Shah");
 console.log(has);
+const brad = new Person("Brad", "Pitt");
+console.log(brad);
+console.log(has.greeting());
+console.log(brad.greeting());
