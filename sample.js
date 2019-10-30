@@ -722,3 +722,33 @@ const brad4 = Object.create(personProps, {
   lName: {value: "PITTT"}
 });
 console.log(brad4);
+console.log(mary.__proto__);
+// mary.__proto__ = brad2;
+// console.log(mary.__proto__);
+
+//__proto__
+let animal = {
+  eats: true,
+  walk: function () {
+    return "Animal walks"
+  }
+};
+let rabbit = {
+  jumps: true,
+  __proto__: animal
+};
+console.log(rabbit.walk());
+for(let key in rabbit) {
+  console.log(key);
+  // alert(key);
+}
+
+// console.log(rabbit);
+// let x = "hello";
+// delete x;
+
+Object.defineProperty(rabbit, "jumps", {value: false});
+console.log(rabbit);
+console.log(Object.getOwnPropertyNames(rabbit));
+Object.defineProperty(rabbit, "crawls", {value: true});
+console.log(rabbit);
