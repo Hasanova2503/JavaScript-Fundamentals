@@ -752,3 +752,12 @@ console.log(rabbit);
 console.log(Object.getOwnPropertyNames(rabbit));
 Object.defineProperty(rabbit, "crawls", {value: true});
 console.log(rabbit);
+
+console.log("\n");
+
+//this
+console.log(this);
+function helloThis() {
+  console.log(this);
+}
+helloThis(); // undefined using use strict
