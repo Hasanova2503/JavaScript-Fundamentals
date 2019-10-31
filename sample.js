@@ -830,3 +830,48 @@ document.querySelector('li:last-child').style.color = "blue";
 document.querySelector('li:nth-child(2)').style.color = "yellow";
 document.querySelector('li:nth-child(3)').textContent = "NEW TASK";
 document.querySelector('li:nth-child(even)').style.background = "grey";
+
+console.log("\n");
+
+// DOM selectors for mulitple elements
+function domSelectorMultipleElements() {
+  const items = document.getElementsByClassName("collection-item"); // All elements with collection-list as classname
+  console.log(items);
+  console.log(items[1]);
+  items[0].style.background = "orange";
+  items[3].textContent = "Hello";
+
+  const listItems = document.querySelector('ul').getElementsByClassName('collection-item'); // Collection items inside ul
+  console.log(listItems);
+  // listItems.reverse();
+
+  //get elements by tagname
+  let tagItems = document.getElementsByTagName('li');
+  console.log(tagItems)
+  console.log(tagItems[2]);
+
+  //HTML Collection is not an array
+  tagItems = Array.from(tagItems);
+  tagItems.reverse(); //Won't work so convert to array
+  console.log(tagItems);
+
+  tagItems.forEach(function(li) {
+    console.log(li.className);
+    // li.textContent = "Hello";
+  });
+
+  //document.querySelctorAll
+  const querySelectorAllItems = document.querySelectorAll('ul.collection li.collection-item');
+  console.log(querySelectorAllItems);
+
+  querySelectorAllItems.forEach(function(li) {
+    console.log(li.style.color);
+  });
+
+  const liOdd = document.querySelectorAll("li:nth-child(odd)");
+  console.log(liOdd);
+  liOdd.forEach(function(li) {
+    console.log(li.style.color);
+  });
+}
+domSelectorMultipleElements();
