@@ -1022,7 +1022,7 @@ const replaceAndRemove = function () {
 
   // attributes
   val = link.getAttribute("href");
-  val = link.setAttribute("href", "https://google.com");
+  // val = link.setAttribute("href", "https://google.com");
   val = link.hasAttribute("href");
   link.setAttribute("title", "LINK");
   link.removeAttribute("title");
@@ -1138,7 +1138,7 @@ const eventBubbling = function () {
   document.querySelector(".card").addEventListener("click", onClickCard);
   document.querySelector(".col").addEventListener("click", onClickCol);
 };
-eventBubbling();
+// eventBubbling();
 
 function onClickBubble() {
   console.log("Card Title");
@@ -1151,4 +1151,22 @@ function onClickCard() {
 }
 function onClickCol() {
   console.log("Col");
+}
+
+// Event delegation
+const eventDelegation = function () {
+  // const deleteItem = document.querySelector(".delete-item");
+  // deleteItem.addEventListener("click", onDeleteButton);
+  document.body.addEventListener("click", onDeleteButton);
+};
+eventDelegation();
+
+function onDeleteButton (e) {
+  if(e.target.parentElement.className === "delete-item") {
+    console.log("DELETE");
+  }
+  if(e.target.parentElement.classList.contains("delete-item")) {
+    console.log("CLASS-LIST DELETE");
+    e.target.parentElement.parentElement.remove();
+  }
 }
