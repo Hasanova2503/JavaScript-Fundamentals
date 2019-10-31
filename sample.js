@@ -875,3 +875,66 @@ function domSelectorMultipleElements() {
   });
 }
 domSelectorMultipleElements();
+
+console.log("\n");
+
+const traversingDOM = function () {
+  let val;
+  const list = document.querySelector('ul.collection');
+  const listItems = document.querySelector("li.collection-item:first-child");
+
+  val = listItems;
+  val = list;
+
+  //get child nodes
+  val = list.childNodes; //node list Text because of line break 
+  val = list.childNodes[0];
+  val = list.childNodes[0].nodeName;
+  val = list.childNodes[0].nodeType;
+  // val = list.childNodes[1].nodeValue;
+
+  // 1 --> Element Node
+  // 2 --> Attribute (depricated)
+  // 3 --> text node
+  // 8 --> Comment
+  // 9 --> Document itself
+  // 10 --> doctype
+
+  //get children elements node
+  val = list.children; //HTML Collection
+  val = list.children[0];
+  list.children[0].textContent = "SAP";
+
+  //children of children
+  list.children[1].children[0].id = "test-id";
+  val = list.children[1].children[0];
+
+  //first child
+  val = list.firstChild; //with text and elements
+  val = list.firstElementChild; //only element
+
+  //last child
+  val = list.lastChild;
+  val = list.lastElementChild;
+
+  //Count child elements
+  val = list.childElementCount;
+
+  //get parent node
+  val = listItems.parentNode;
+  val = listItems.parentElement;
+
+  val = listItems.parentElement.parentElement;
+
+  //get next sibling
+  val = listItems.nextSibling;
+  val = listItems.nextElementSibling;
+  val = listItems.nextSibling.nextElementSibling;
+
+  //get previous sibling
+  val = listItems.previousSibling;
+  val = listItems.previousElementSibling;
+
+  console.log(val);
+};
+traversingDOM();
