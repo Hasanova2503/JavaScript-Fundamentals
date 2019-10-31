@@ -938,3 +938,35 @@ const traversingDOM = function () {
   console.log(val);
 };
 traversingDOM();
+
+console.log("\n");
+
+const createElements = function () {
+  //create element
+  const li = document.createElement('li');
+  // add classname
+  li.className = "collection-list";
+  // add id
+  li.id = "item-id";
+
+  //add attribute
+  li.setAttribute("title", "List Item");
+  // li.setAttribute("class", "collection");
+
+  //create text node and append
+  li.appendChild(document.createTextNode("World"));
+
+  //create new link element
+  const link = document.createElement("a");
+  link.className = "delete-item secondary-content";
+  link.innerHTML = "<i class=\"fa fa-remove\"></i>";
+
+  //append link to li
+  li.appendChild(link);
+
+  //append child li to ul
+  document.querySelector("ul.collection").appendChild(li);
+
+  console.log(li);
+}
+createElements();
