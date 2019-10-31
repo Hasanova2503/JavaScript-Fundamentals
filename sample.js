@@ -990,5 +990,42 @@ const replaceAndRemove = function () {
 
   //replace
   cardAction.replaceChild(newHeading, oldHeading);
+
+  //REMOVE ELEMENT
+  const list = document.querySelectorAll("li");
+  const listItems = document.querySelector("ul");
+
+  //remove list elements
+  // list[0].remove();
+
+  //remove child
+  // listItems.removeChild(list[1]);
+
+  console.log(list);
+
+  // classes and attributes
+  const firstLi = document.querySelector("li:nth-child(2)");
+
+  console.log(firstLi.children[0]);
+  const link = firstLi.children[0];
+
+  // classes
+  let val;
+  val = link.className;
+  val = link.classList; // DOM token list
+  val = link.classList[0];
+  link.classList.add("test");
+  link.classList.remove("test");
+  val = link;
+
+  // attributes
+  val = link.getAttribute("href");
+  val = link.setAttribute("href", "https://google.com");
+  val = link.hasAttribute("href");
+  link.setAttribute("title", "LINK");
+  link.removeAttribute("title");
+  val = link;
+
+  console.log(val);
 }
 replaceAndRemove();
