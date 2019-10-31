@@ -1159,7 +1159,7 @@ const eventDelegation = function () {
   // deleteItem.addEventListener("click", onDeleteButton);
   document.body.addEventListener("click", onDeleteButton);
 };
-eventDelegation();
+// eventDelegation();
 
 function onDeleteButton (e) {
   if(e.target.parentElement.className === "delete-item") {
@@ -1170,3 +1170,52 @@ function onDeleteButton (e) {
     e.target.parentElement.parentElement.remove();
   }
 }
+
+console.log("\n");
+
+//Local Storage and Session Storage
+const StorageCall = function () {
+  localStorage.setItem("name", "Hasan");
+  localStorage.setItem("age", 22);
+
+  sessionStorage.setItem("name", "Shahid"); //ends when session is over
+
+  // localStorage.removeItem("name"); //remove item from localstorage
+
+  //get item
+  const name = localStorage.getItem("name");
+  const age = localStorage.getItem("age");
+  console.log(name + age);
+
+  //clear local storage
+  // localStorage.clear();
+}
+StorageCall();
+
+const store = function () {
+  document.querySelector("form").addEventListener("submit", onSubmitStore);
+};
+store();
+
+function onSubmitStore(e) {
+  const task = document.getElementById("task").value;
+
+  let tasks;
+  if(localStorage.getItem("tasks") === null) {
+    tasks = [];
+  }
+  else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+
+  tasks.push(task);
+
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  alert("task SAVED");
+  e.preventDefault();
+}
+
+  const tasks = JSON.parse(localStorage.getItem("tasks"));
+  tasks.forEach(function(task) {
+    console.log(task);
+  });
