@@ -197,9 +197,7 @@ let h;
 // delete h; //SYNTAX ERROR
 //writing secure code
 
-console.log("\n");
 
-//TYPE Conversion
 h = 5;
 console.log(h);
 console.log(typeof(h));
@@ -213,7 +211,7 @@ console.log(h.length);
 
 //Boolean to String
 h = String(true);
-
+34+""
 //Array to String
 h = String([1, 2, 3, 4]);
 
@@ -801,3 +799,34 @@ scriptArr.forEach(function(script) {
 });
 
 console.log(val);
+
+console.log("\n");
+
+//document.getElementById()
+console.log(document.getElementById('task-title'));
+
+//get things from element
+console.log(document.getElementById('task-title').id);
+
+//change styling
+document.getElementById('task-title').style.background = "#333";
+document.getElementById('task-title').style.color = "#fff";
+document.getElementById('task-title').style.padding = "5px";
+// document.getElementById('task-title').style.display = "none";
+
+//change content
+document.getElementById('task-title').textContent = "Task List";
+document.getElementById('task-title').innerText = "My Lists";
+document.getElementById('task-title').innerHTML = "<span style=\"color:red\">Task list</span>";
+
+//document.querySelector
+console.log(document.querySelector("#task-title"));
+console.log(document.querySelector(".card-title"));
+console.log(document.querySelector("h5"));
+
+document.querySelector('li').style.color = "red";
+
+document.querySelector('li:last-child').style.color = "blue";
+document.querySelector('li:nth-child(2)').style.color = "yellow";
+document.querySelector('li:nth-child(3)').textContent = "NEW TASK";
+document.querySelector('li:nth-child(even)').style.background = "grey";
