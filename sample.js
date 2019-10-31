@@ -1089,7 +1089,7 @@ const mouseEvents = function () {
   // card.addEventListener("mouseout", runEvent);
   card.addEventListener("mousemove", runEvent);
 };
-mouseEvents();
+// mouseEvents();
 
 function runEvent(e) {
   // console.log(heading);
@@ -1097,4 +1097,34 @@ function runEvent(e) {
   console.log(`EVENT ${e.type}`);
   heading.innerText = `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`;
   document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, 40)`;
+}
+
+const keyboardEvent = function () {
+  const form = document.querySelector("form");
+  const taskInput = document.getElementById("task");
+  taskInput.value = ""; //clear input
+  // form.addEventListener("submit", submitForm);
+
+  taskInput.addEventListener("keydown", tarValue);
+  taskInput.addEventListener("keyup", tarValue);
+  taskInput.addEventListener("focus", tarValue);
+  taskInput.addEventListener("blur", tarValue);
+  taskInput.addEventListener("cut", tarValue); //cut or ctrl+x
+  taskInput.addEventListener("paste", tarValue);
+  taskInput.addEventListener("input", tarValue);
+};
+keyboardEvent();
+
+function submitForm (e) {
+  const taskInput = document.getElementById("task");
+  console.log(`EVENT ${e.type}`);
+
+  //get input value
+  // console.log(taskInput.value);
+  // e.preventDefault();
+}
+
+function tarValue(e) {
+  console.log(`EVENT ${e.type}`);
+  console.log(e.target.value);
 }
