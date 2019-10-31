@@ -842,6 +842,7 @@ function domSelectorMultipleElements() {
   items[3].textContent = "Hello";
 
   const listItems = document.querySelector('ul').getElementsByClassName('collection-item'); // Collection items inside ul
+  // console.log("hello");
   console.log(listItems);
   // listItems.reverse();
 
@@ -863,6 +864,7 @@ function domSelectorMultipleElements() {
   //document.querySelctorAll
   const querySelectorAllItems = document.querySelectorAll('ul.collection li.collection-item');
   console.log(querySelectorAllItems);
+  // console.log("hello");
 
   querySelectorAllItems.forEach(function(li) {
     console.log(li.style.color);
@@ -968,7 +970,7 @@ const createElements = function () {
   document.querySelector("ul.collection").appendChild(li);
 
   console.log(li);
-}
+};
 createElements();
 
 console.log("\n");
@@ -1027,5 +1029,44 @@ const replaceAndRemove = function () {
   val = link;
 
   console.log(val);
-}
+};
 replaceAndRemove();
+
+console.log("\n");
+
+// Event listener
+const eventListener = function () {
+  document.querySelector(".clear-tasks").addEventListener("click",
+  function(e) {
+    console.log("EVENT");
+
+    // e.preventDefault(); // prevent default behavior
+  });
+
+  document.querySelector(".clear-tasks").addEventListener("click", onClick);
+}
+eventListener();
+
+function onClick(e) {
+  let val;
+  val = e;
+  val = e.target;
+  val = e.target.className;
+  e.target.innerText = "SORRY";
+
+  //event type
+  val = e.type;
+
+  //timestamp
+  val = e.timeStamp;
+
+  //coordinates relative to window where button was pressed
+  val = e.clientY;
+  val = e.clientX;
+
+  //coor related to elem
+  val = e.offsetX;
+  val = e.offsetY;
+
+  console.log(val);
+}
