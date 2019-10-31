@@ -1113,7 +1113,7 @@ const keyboardEvent = function () {
   taskInput.addEventListener("paste", tarValue);
   taskInput.addEventListener("input", tarValue);
 };
-keyboardEvent();
+// keyboardEvent();
 
 function submitForm (e) {
   const taskInput = document.getElementById("task");
@@ -1127,4 +1127,28 @@ function submitForm (e) {
 function tarValue(e) {
   console.log(`EVENT ${e.type}`);
   console.log(e.target.value);
+}
+
+console.log("\n");
+
+//Event bubbling
+const eventBubbling = function () {
+  document.querySelector(".card-title").addEventListener("click", onClickBubble);
+  document.querySelector(".card-content").addEventListener("click", onClickContent);
+  document.querySelector(".card").addEventListener("click", onClickCard);
+  document.querySelector(".col").addEventListener("click", onClickCol);
+};
+eventBubbling();
+
+function onClickBubble() {
+  console.log("Card Title");
+}
+function onClickContent() {
+  console.log("Card Content");
+}
+function onClickCard() {
+  console.log("Card");
+}
+function onClickCol() {
+  console.log("Col");
 }
