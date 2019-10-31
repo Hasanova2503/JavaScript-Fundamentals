@@ -945,7 +945,7 @@ const createElements = function () {
   //create element
   const li = document.createElement('li');
   // add classname
-  li.className = "collection-list";
+  li.className = "collection-item";
   // add id
   li.id = "item-id";
 
@@ -970,3 +970,25 @@ const createElements = function () {
   console.log(li);
 }
 createElements();
+
+console.log("\n");
+
+//replacing and removing elements
+const replaceAndRemove = function () {
+  //Replace elements
+  const newHeading = document.createElement("h2");
+  newHeading.id = "task-title";
+  newHeading.appendChild(document.createTextNode("Taskssssss"));
+  // newHeading.textContent = "NEW TASK";
+  console.log(newHeading);
+
+  const oldHeading = document.getElementById("task-title");
+  console.log(oldHeading);
+
+  //Parent
+  const cardAction = document.querySelector(".card-action");
+
+  //replace
+  cardAction.replaceChild(newHeading, oldHeading);
+}
+replaceAndRemove();
