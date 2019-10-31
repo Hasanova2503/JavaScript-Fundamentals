@@ -1045,7 +1045,7 @@ const eventListener = function () {
 
   document.querySelector(".clear-tasks").addEventListener("click", onClick);
 }
-eventListener();
+// eventListener();
 
 function onClick(e) {
   let val;
@@ -1069,4 +1069,32 @@ function onClick(e) {
   val = e.offsetY;
 
   console.log(val);
+}
+
+console.log("\n");
+
+// mouse events
+const mouseEvents = function () {
+  const clrButton = document.querySelector(".clear-tasks");
+  const card = document.querySelector(".card");
+  const heading = document.querySelector("h2");
+  // console.log(clrButton);
+  // clrButton.addEventListener("click", runEvent);
+  // clrButton.addEventListener("dblclick", runEvent);
+  // clrButton.addEventListener("mousedown", runEvent); //click and hold
+  // clrButton.addEventListener("mouseup", runEvent);
+  // card.addEventListener("mouseenter", runEvent);
+  // card.addEventListener("mouseleave", runEvent);
+  // card.addEventListener("mouseover", runEvent);
+  // card.addEventListener("mouseout", runEvent);
+  card.addEventListener("mousemove", runEvent);
+};
+mouseEvents();
+
+function runEvent(e) {
+  // console.log(heading);
+  const heading = document.querySelector("h2");
+  console.log(`EVENT ${e.type}`);
+  heading.innerText = `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`;
+  document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, 40)`;
 }
