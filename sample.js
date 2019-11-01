@@ -1190,12 +1190,12 @@ const StorageCall = function () {
   //clear local storage
   // localStorage.clear();
 }
-StorageCall();
+// StorageCall();
 
 const store = function () {
   document.querySelector("form").addEventListener("submit", onSubmitStore);
 };
-store();
+// store();
 
 function onSubmitStore(e) {
   const task = document.getElementById("task").value;
@@ -1215,7 +1215,49 @@ function onSubmitStore(e) {
   e.preventDefault();
 }
 
-  const tasks = JSON.parse(localStorage.getItem("tasks"));
-  tasks.forEach(function(task) {
-    console.log(task);
-  });
+const tasks = JSON.parse(localStorage.getItem("tasks"));
+tasks.forEach(function(task) {
+  console.log(task);
+});
+
+console.log("\n");
+const forOfLoop = function () {
+  let numArr = [1, 2, 4, 5, 6];
+  for(let x of numArr) {
+    console.log(x); //will give value
+  }
+  for(let x in numArr) {
+    console.log(x); // will give index
+    console.log(numArr[x]); //will give value
+  }
+};
+forOfLoop();
+
+// let numberN = 0 || 12;
+// console.log(numberN);
+
+console.log("\n");
+
+//type conversion implicit and explicit
+const typeConversion = function () {
+  let val;
+
+  //Implicit conversion
+  val = "str" > 0; //automatically convert 
+  val = "I am " + 9 + " years old."; // automatically convert 9 to String
+
+  //explicit conversion
+  val = Number("123");
+  val = String(213);
+  val = (1222222).toString();
+  val = [12, 345, 435];
+  console.log(val);
+  val = val.toString();
+  val = String(val);
+
+  val = 1 + +"2" + 1; //explicit conversion
+  val = 1 + "2" + 1; // implicit conversion
+
+  console.log(val);
+}
+typeConversion();
