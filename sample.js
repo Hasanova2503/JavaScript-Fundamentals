@@ -1223,6 +1223,13 @@ tasks.forEach(function(task) {
 console.log("\n");
 const forOfLoop = function () {
   let numArr = [1, 2, 4, 5, 6];
+  let objArr = {
+    name: "hasa",
+    age: 30
+  };
+  // for(let x of objArr) {
+  //   console.log(x);
+  // }
   for(let x of numArr) {
     console.log(x); //will give value
   }
@@ -1259,5 +1266,70 @@ const typeConversion = function () {
   val = 1 + "2" + 1; // implicit conversion
 
   console.log(val);
-}
+};
 typeConversion();
+
+console.log("\n");
+
+//console methods
+const consoleMethods = function () {
+  console.assert(document.getElementById("demo"), "NO ELEMENT"); // if first arg is false, then second message is displayed
+  const objArr = {
+    name: "Hello",
+    age: 30
+  };
+  console.assert(1 < 0, objArr);
+
+  //console clear
+  // console.clear();
+
+  //console count
+  console.count();
+  console.count();
+  console.count("Hello");
+
+  //console.error
+  console.error("ERR404");
+
+  //console.group and group end
+  console.log("Hello");
+  console.group("LABEL"); //with or without label
+  console.log("Hello AGAIN");
+  console.log("WOR");
+  console.groupEnd();
+  console.log("OUT");
+
+  //console.groupcollapsed
+  console.groupCollapsed("COLLAPSED");
+  console.log("IN COLLAPSE");
+  console.groupEnd();
+
+  //console.info
+  console.info("CONSOLE INFO");
+
+  //console.table
+  console.table(["X", "Y", "Z"]);
+  console.table({name: "HMS", age: 22});
+
+  //console.time
+  console.time("TIMER");
+  for(let i = 0; i < 100; i++) {
+    let val = "2" > 0;
+  }
+  console.timeEnd("TIMER");
+
+  //console.trace
+  function oneFunc() {
+    twoFunc();
+  }
+  function twoFunc() {
+    console.trace();
+  }
+  oneFunc();
+
+  //console.warn
+  console.warn("WARNING");
+
+  // console.debug("DEBUG");
+};
+consoleMethods();
