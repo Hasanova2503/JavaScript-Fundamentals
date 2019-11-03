@@ -1333,3 +1333,95 @@ const consoleMethods = function () {
   // console.debug("DEBUG");
 };
 consoleMethods();
+
+console.log("\n");
+
+// Object methods
+const objectMethods = function () {
+  const person = {
+    name: "Hasan",
+    age: 22,
+    branch: "Computer Engineering",
+    toDo: function () {
+      return("TODO");
+    }
+  };
+  // person.prototype.someMethod = function () {
+  //   console.log("METHODS");
+  // }
+
+  //Traverse using for in loop
+  for(let x in person) {
+    console.log(x);
+    console.log(person[x]);
+  }
+
+  //traverse using for of
+  let key = Object.keys(person);
+  console.log(key);
+  let values = Object.values(person);
+  console.log(values);
+  let entries = Object.entries(person);
+  console.log(entries);
+  for(let x of entries) {
+    console.log(x);
+  }
+
+  const person1 = Object.create(person); //copy properties
+  person1.name = "Rajat";
+  console.log(person);
+  console.log(person1);
+  console.log(person1.toDo());
+  // console.log(person1.someMethod());
+  console.log(person1.age);
+
+  function One () {
+    this.name = "hasna";
+    this.age = 22;
+  }
+  const newOne = new One();
+  console.log(newOne);
+
+  //Object.assign
+  const pers = {
+    name: "HMS",
+    age: 22
+  };
+  const data = {
+    branch: "Computer Engineering"
+  };
+  const combn = Object.assign(pers, data); // change will be reflected in pers
+  console.log(combn);
+  const combn2 = {...pers, ...data};
+  console.log(combn2);
+  const combn3 = Object.assign(data); // Empty object
+  console.log(combn3);
+  const combn4 = Object.assign({}, data);
+  console.log(combn4);
+
+  //object.freeze
+  const freeze = {
+    username: "admin",
+    password: "admin"
+  };
+  const newUser = Object.freeze(freeze); //readonly
+  // newUser.username = "hasan"; // cannot assign
+  // newUser.active = true; //cannot add
+  console.log(newUser);
+  console.log(Object.isFrozen(freeze)); //check whether object is freezed
+
+  //Object.seal
+  const user = {
+    username: "HMS"
+  };
+  const user1 = Object.seal(user);
+  user1.username = "HASAN"; //modification allowed
+  // user1.active = true; //cannot add new property
+  console.log(user1);
+
+  console.log(Object.getOwnPropertyNames(user));
+  console.log(Object.getOwnPropertySymbols(user));
+  console.log(Object.getPrototypeOf(user));
+  console.log(user.__proto__);
+}
+objectMethods();
