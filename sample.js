@@ -1423,5 +1423,38 @@ const objectMethods = function () {
   console.log(Object.getOwnPropertySymbols(user));
   console.log(Object.getPrototypeOf(user));
   console.log(user.__proto__);
+  console.log(user.hasOwnProperty("username")); //hasOwnProperty
 }
 objectMethods();
+
+console.log("\n");
+
+//Object
+let hello = "HEllo"
+const obj = function () {
+  const newObj = {
+    hello
+  };
+  const obj2 = {
+    hello: "World"
+  };
+  console.log(newObj);
+  console.log(obj2);
+};
+obj();
+
+const defaultValue = function () {
+  let hello = "";
+  hello = "world" || hello;
+  console.log(hello);
+  hello = "" || "WORLD";
+  console.log(hello)
+  hello = "HELLO" || "WoRlD";
+  console.log(hello);
+
+  hello = "" && "World";
+  console.log(hello);
+  hello = "Hello" && "World";
+  console.log(hello);
+};
+defaultValue();
