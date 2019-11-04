@@ -1458,3 +1458,48 @@ const defaultValue = function () {
   console.log(hello);
 };
 defaultValue();
+
+console.log("\n");
+
+//conversion
+const conversion = function () {
+  let arr = [1, 2, 3, 4];
+  let obj = {
+    name: "HMS",
+    age: 22
+  };
+  console.log(arr);
+  arr = arr.toString();
+  console.log(arr);
+  // console.log(arr.split(","));
+
+  console.log(obj);
+  obj = JSON.stringify(obj);
+  console.log(obj);
+};
+conversion();
+
+console.log("\n");
+
+// Array methods
+const arrayMethods = function() {
+  //Array.from
+  console.log(Array.from("abcd"));
+  console.log(Array.from([1, 2, 3, 4], x => x + x));
+
+  //Array.concat
+  const arr1 = [1, 2, 3];
+  const arr2 = ["a", "b"];
+  let val = arr1.concat(arr2);
+  console.log(val);
+  console.log(arr1);
+
+  //copywithin
+
+  //entries
+  let iter = arr1.entries();
+  for(let x of iter) {
+    console.log(x);
+  }
+}
+arrayMethods();
