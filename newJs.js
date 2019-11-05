@@ -143,4 +143,101 @@ const arrayMethods = function() {
 }
 arrayMethods();
 
+console.log("\n");
+
 //String methods
+const stringMethods = function() {
+    //fromCharCode
+    console.log(String.fromCharCode(65, 66, 243));
+
+    //fromCodePoint
+    console.log(String.fromCodePoint(9731, 9999, 8888));
+
+    let stringOne = "This is sentence.";
+
+    //charAt, charCodeAt, codePointAt
+    console.log(stringOne.charAt(6));
+    console.log(stringOne.charCodeAt(6));
+    console.log(stringOne.codePointAt(6));
+
+    // concat
+    console.log(stringOne.concat("Hello", " World."));
+    console.log(stringOne);
+
+    //endsWith & startWith
+    console.log(stringOne.endsWith("tence."));
+    console.log(stringOne.endsWith("i", 7));
+    console.log(stringOne.startsWith("Th"));
+    console.log(stringOne.startsWith("Thi", 2));
+
+    //includes
+    console.log(stringOne.includes("is"));
+
+    //indexOf
+    stringOne = "This is sentence1. This is another."
+    console.log(stringOne.indexOf("is"));
+    console.log(stringOne.lastIndexOf("is"));
+
+    //match & matchAll
+    let regEx = /[A-Z]/g;
+    console.log(stringOne.match(regEx));
+    regex = /This/g;
+    stringOne = "Th this Th";
+    let array = [...stringOne.matchAll(regEx)];
+    console.log(array);
+
+    //padEnd & padStart
+    stringOne = "Hello";
+    console.log(stringOne.padEnd(10, "."));
+    console.log(stringOne.padStart(10, "."));
+
+    //repeat
+    console.log(stringOne.repeat(5));
+
+    //replace
+    stringOne = "Hello";
+    regEx = /Hello/gi;
+    console.log(stringOne.replace(regEx, "World"));
+
+    //search ==> index of first match
+    console.log(stringOne.search(regEx));
+
+    //slice
+    console.log(stringOne.slice(1, 3));
+
+    //split
+    stringOne = "hello world";
+    console.log(stringOne.split(" "));
+
+    //substring
+    console.log(stringOne.substring(1, 3));
+    console.log(stringOne.slice(1, 3));
+
+    //difference between substring and slice
+    stringOne = "Mozilla";
+    console.log(stringOne.substring(5, 2));
+    console.log(stringOne.slice(5, 2));
+    console.log(stringOne.substring(-5, 2));
+    console.log(stringOne.slice(-5, 2));
+
+    //tolowercase & to uppercase
+    console.log(stringOne.toUpperCase());
+    console.log(stringOne.toLowerCase());
+
+    //trim, trimStart & trimEnd
+    stringOne = "   Hello  ";
+    console.log(stringOne.trim()+stringOne.trim().length);
+    console.log(stringOne.trimStart()+stringOne.trimStart().length);
+    console.log(stringOne.trimEnd()+stringOne.trimEnd().length);
+
+    //toString
+    stringOne = 5;
+    console.log(typeof(stringOne));
+    console.log(typeof((stringOne).toString()));
+
+    //valueOf
+    stringOne = new String("hello");
+    console.log(stringOne);
+    console.log(stringOne.valueOf());
+}
+stringMethods();
