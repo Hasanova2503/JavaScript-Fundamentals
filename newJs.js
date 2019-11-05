@@ -140,7 +140,7 @@ const arrayMethods = function() {
     for(let value of iterator1) {
         console.log(value);
     }
-}
+};
 arrayMethods();
 
 console.log("\n");
@@ -239,5 +239,62 @@ const stringMethods = function() {
     stringOne = new String("hello");
     console.log(stringOne);
     console.log(stringOne.valueOf());
-}
+};
 stringMethods();
+
+console.log("\n");
+
+//destructuring assignment using rest parameter for ARRAY and OBJECTS
+const destructureAssigment = function() {
+    //Array destructurizing
+    let firstArray = ["HMS", "Pune"];
+    let [name, city] = firstArray;
+    console.log(name + city);
+    [name, city] = "HMS Pune".split(" ");
+    console.log(name);
+    console.log(city);
+
+    //ignore elements by ,
+    firstArray = ["A", "B", "C"];
+    let [firstElem, , thirdElem] = firstArray;
+    console.log(firstElem + thirdElem);
+
+    //object
+    let user = {};
+    [user.name, user.surname] = "A B".split(" ");
+    console.log(user);
+
+    //...rest
+    firstArray = ["A", "B", "C", "D"];
+    // [firstEm, secondElem, ...rest] = firstArray;
+    // console.log(firstEm + secondElem);
+    // console.log(rest);
+
+    //default values
+    [firstEm = "H", secondElem = "M"] = ["A"];
+    console.log(firstEm + secondElem);
+
+    const person = {
+        firstName: "H",
+        lastName: "M"
+    };
+    let {firstName, lastName} = person;
+    console.log(firstName + " " + lastName);
+    let {firstName: fName, lastName: lName} = person;
+    console.log(fName + lName);
+
+    //defualt values
+    let {firstName: newName = "H", lastName: surName = "S"} = {firstName: "A"};
+    console.log(newName + surName);
+    
+    // rest
+    let options = {
+        title: "Menu",
+        height: 200,
+        width: 100
+    };
+    let {title, ...rest} = options;
+    console.log(title);
+    console.log(rest);
+};
+destructureAssigment();
