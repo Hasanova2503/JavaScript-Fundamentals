@@ -1503,3 +1503,32 @@ const arrayMethods = function() {
   }
 }
 arrayMethods();
+
+console.log("\n");
+
+const errorHand = function() {
+  const user = {
+    name: "H"
+  };
+  try {
+    // myFunc(); // referenceError
+    // null.arrayMethods(); // type error
+    // eval('hello wor'); //syntax error
+    // decodeURIComponent("%"); //URI Error
+
+    if(!user.age) {
+      throw "no age";
+    }
+  }
+  catch(e) {
+    console.log(e);
+    // console.log(e.message);
+    // console.log(e.name);
+    // console.log(e instanceof ReferenceError);
+  }
+  finally {
+    console.log("runs everytime");
+  }
+  console.log("After error");
+}
+errorHand();
