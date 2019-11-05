@@ -298,3 +298,39 @@ const destructureAssigment = function() {
     console.log(rest);
 };
 destructureAssigment();
+
+console.log("\n");
+
+const restSpread = function() {
+    //rest ==> function parameters
+    const sum = function(...args) {
+        console.log(args);
+        let sum = 0;
+        for(let elem of args) {
+            sum += elem;
+        }
+        return sum;
+    };
+    console.log(sum(1));
+    console.log(sum(1, 2));
+    console.log(sum(1, 2, 3));
+
+    const showName = function(firstName, lastName, ...rest) { // ...rest at the end
+        console.log(firstName + " " + lastName);
+        console.log(rest);
+    };
+    showName("H", "M", "TITLE", "Hell");
+    showName("H", "M", "TITLE", "Hell", "G");
+
+    //spread ==> function call
+    let arrayFirst = [3, 5, 2, 8, 0];
+    let arraySecond = [1, 5, 3, 9, 3];
+    console.log(Math.max(...arrayFirst));
+    console.log(Math.max(...arrayFirst, ...arraySecond));
+    console.log(Math.max(...arrayFirst, 34, ...arraySecond, 54));
+
+    let string = "Hello";
+    console.log(...string);
+    console.log(Array.from(string));
+}
+restSpread();
