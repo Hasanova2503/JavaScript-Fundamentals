@@ -407,7 +407,7 @@ thisContext();
 
 console.log("\n");
 
-//arrow functions
+//arrow functions this
 const newArrowFunc = () => {
     return this;
 };
@@ -433,3 +433,13 @@ newPerson.myMethod();
 newPerson.newVar(); //newPerson
 const newVar = newPerson.newVar;
 newVar(); //newPerson
+
+const admin = {
+    name: null,
+    func: function() {
+        this.name = "H";
+    }
+};
+console.log(admin.name);
+admin.func();
+console.log(admin.name);
