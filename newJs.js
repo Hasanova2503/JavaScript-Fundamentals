@@ -493,3 +493,40 @@ const callAndApply = function() {
     console.log(Math.max(...array));
 }
 callAndApply();
+
+console.log("\n");
+
+//bind() ==> creates a new function and can be called later
+const bindFunc = function() {
+    var module = {
+        x: 42,
+        getX: function() {
+            return this.x;
+        }
+    }
+    var unboundX = module.getX;
+    // console.log(unboundX());
+    var boundX = unboundX.bind(module);
+    console.log(boundX());
+
+    var poke = {
+        firstName: "Pikachu",
+        getName: function() {
+            return this.firstName;
+        }
+    };
+
+    var pokeName = function(snack) {
+        console.log(this.getName() + " SELECTED" + snack);
+    }
+    var logPoke = pokeName.bind(poke);
+    logPoke("PIZZA");
+    console.log(logPoke);
+    console.log(pokeName);
+    console.log(logPoke == pokeName);
+
+    // methods of objects
+    var pokeGetName = poke.getName.bind(poke);
+    console.log(pokeGetName());
+};
+bindFunc();
