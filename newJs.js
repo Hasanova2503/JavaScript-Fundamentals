@@ -1,3 +1,4 @@
+'use strict';
 // Array methods
 const arrayMethods = function() {
     // Array from
@@ -181,7 +182,7 @@ const stringMethods = function() {
     //match & matchAll
     let regEx = /[A-Z]/g;
     console.log(stringOne.match(regEx));
-    regex = /This/g;
+    regEx = /This/g;
     stringOne = "Th this Th";
     let array = [...stringOne.matchAll(regEx)];
     console.log(array);
@@ -271,7 +272,7 @@ const destructureAssigment = function() {
     // console.log(rest);
 
     //default values
-    [firstEm = "H", secondElem = "M"] = ["A"];
+    let [firstEm = "H", secondElem = "M"] = ["A"];
     console.log(firstEm + secondElem);
 
     const person = {
@@ -332,5 +333,74 @@ const restSpread = function() {
     let string = "Hello";
     console.log(...string);
     console.log(Array.from(string));
-}
+};
 restSpread();
+
+console.log("\n");
+
+// this context
+console.log(this);
+console.log(window);
+const thisContext = function() {
+    console.log(this); //undefined using 'use strict', else window
+
+    const person = {
+        functionOne: function() {
+            return this;
+        },
+        secondElem: {
+            functionOne: function() {
+                return this;
+            }
+        }
+    }
+    console.log(person.functionOne()); //person
+    console.log(person.secondElem.functionOne()); //functionOne, it will not return person ==> 1
+    console.log(person.secondElem); //functionOne ==> 2
+    console.log(person.secondElem === person.secondElem.functionOne());
+
+    //using a function inside method
+    function hello() {
+        return this;
+    }
+    let obj = {
+        method: hello
+    };
+    console.log(obj.method()); //obj
+
+    //this in arrow function
+    const arrowFunc = () => {
+        return this;
+    }
+    console.log(arrowFunc()); //return undefined using use strict, else window
+
+    //object prototype
+    const objectTwo = {
+        func: function() {
+            return this.x;
+        }
+    };
+    let newObj = Object.create(objectTwo);
+    newObj.x = 10;
+    console.log(newObj.x); //10
+    console.log(objectTwo.x); //undefined
+    console.log(newObj.func());
+    console.log(objectTwo.func());
+    console.log(newObj);
+
+    //constructor
+    function Person(firstName = "Anony") {
+        this.name = firstName;
+        this.func = function() {
+            return this;
+        };
+    }
+    let john = new Person("John");
+    let mike = new Person("Mike");
+    console.log(john.name);
+    console.log(mike.name);
+    console.log(john.func()); //return john person
+    console.log(mike.func()); //return mike person
+
+};
+thisContext();
