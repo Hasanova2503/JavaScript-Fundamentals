@@ -443,3 +443,53 @@ const admin = {
 console.log(admin.name);
 admin.func();
 console.log(admin.name);
+
+console.log("\n");
+
+//call and apply ==> executes immediately
+//call calls a function with this value(object) and arguments provided
+const callAndApply = function() {
+    function Product(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    function Food(name, price) {
+        Product.call(this, name, price);
+        // Product.apply(this, [name, price]);
+        this.category = "Food";
+    }
+
+    function Toy(name, price) {
+        // Food.call(this, name, price);
+        Product.call(this, name, price);
+        // Product.apply(this, [name, price]);
+        this.category = "Toy";
+    }
+    console.log(new Food("cheese", 55));
+    console.log(new Toy("robot", 111));
+
+    function greet(str) {
+        var reply = [this.animal, "typically sleeps between", this.sleepDuration, str].join(" ");
+        return reply;
+    }
+    var obj = {
+        animal: "cats",
+        sleepDuration: "12-16 hrs"
+    };
+    console.log(greet.call(obj, "HMS")); //argument list
+    console.log(greet.call({animal: "dogs", sleepDuration: "14hrs"}, "SUSHI")); //called immediately
+    console.log(greet.apply(obj, ["FOOD"])); //array of arguments
+
+    //apply to append string
+    var array = [1, 2, 3];
+    var mixed = ["a", 4];
+    array.push.apply(array, mixed);
+    console.log(array);
+
+    //apply in builtin functions
+    array = [1, 3, 4, 2];
+    console.log(Math.max.apply(null, array)); //obj null
+    console.log(Math.max(...array));
+}
+callAndApply();
