@@ -369,7 +369,7 @@ const thisContext = function() {
     console.log(obj.method()); //obj
 
     //this in arrow function
-    const arrowFunc = () => {
+    var arrowFunc = () => {
         return this;
     }
     console.log(arrowFunc()); //return undefined using use strict, else window
@@ -404,3 +404,32 @@ const thisContext = function() {
 
 };
 thisContext();
+
+console.log("\n");
+
+//arrow functions
+const newArrowFunc = () => {
+    return this;
+};
+console.log(newArrowFunc()); // window ==> with or without use strict
+
+const person = {
+    method: () => {
+        console.log(this);
+    }
+};
+person.method();
+const myMethod = person.method; //inherit from parent one
+myMethod();
+console.log(myMethod() === person.method());
+
+const newPerson = {
+    newVar: null,
+    myMethod: function() {
+        this.newVar = () => {console.log(this)};
+    }
+};
+newPerson.myMethod();
+newPerson.newVar(); //newPerson
+const newVar = newPerson.newVar;
+newVar(); //newPerson
