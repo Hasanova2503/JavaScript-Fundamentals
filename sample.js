@@ -1532,3 +1532,12 @@ const errorHand = function() {
   console.log("After error");
 }
 errorHand();
+
+function sayHi(name) {
+  console.log(`Hello ${name}`);
+}
+function sayBye(name) {
+  console.log(`Bye ${name}`);
+}
+
+export {sayHi, sayBye};

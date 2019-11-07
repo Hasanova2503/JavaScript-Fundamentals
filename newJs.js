@@ -1,4 +1,5 @@
 'use strict';
+import {sayHi, sayBye} from "./helloJs.js";
 // Array methods
 const arrayMethods = function() {
     // Array from
@@ -689,3 +690,9 @@ const scheduling = function() {
     setTimeout(stopInt, 10000);
 };
 scheduling();
+
+console.log("\n");
+
+//import and export
+sayHi("John");
+sayBye("mi");
