@@ -530,3 +530,65 @@ const bindFunc = function() {
     console.log(pokeGetName());
 };
 bindFunc();
+
+console.log("\n");
+
+//Map operations
+const mapMethods = function() {
+    let mapOne = new Map([[1, "two"], [3, "three"], [2, "one"]]);
+    console.log(mapOne);
+    mapOne.set("1", "stringKeyValue");
+    mapOne.set(4, "Numeric");
+    mapOne.set(true, "Boolean");
+    mapOne.set(true, "Bool"); //override true key
+    console.log(mapOne);
+    console.log(mapOne.size);
+    console.log(mapOne.get(1)); //get the value of key
+
+    //store object as keys
+    const person = {
+        name: "H"
+    };
+    let mapTwo = new Map();
+    mapTwo.set(person, "objects");
+    console.log(mapTwo);
+    console.log(mapTwo.get(person));
+
+    //map chaining
+    mapTwo.set(1, "one")
+        .set(2, "two")
+        .set(3, "three");
+    console.log(mapTwo);
+
+    //map keys values entries
+    let iterator1 = mapTwo.keys();
+    for(let key of iterator1) {
+        console.log(key);
+    }
+
+    iterator1 = mapTwo.values();
+    for(let value of iterator1) {
+        console.log(value);
+    }
+
+    iterator1 = mapTwo.entries();
+    for(let keyValue of iterator1) {
+        console.log(keyValue);
+    }
+
+    //forEach
+    mapTwo.forEach((value, key, map) =>{
+        console.log(`${key}: ${value}`);
+    });
+
+    // Map from object
+    mapTwo = new Map(Object.entries(person)); //object.entries return array of number of arrays
+    console.log(mapTwo.get("name"));
+
+    //object from map
+    let prices = new Map([["Apples", 100], ["Mango", 25], ["orange", 75]]);
+    console.log(prices);
+    let fruitsPrices = Object.fromEntries(prices.entries());
+    console.log(fruitsPrices);
+};
+mapMethods();
