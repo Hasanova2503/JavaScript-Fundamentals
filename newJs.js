@@ -590,5 +590,102 @@ const mapMethods = function() {
     console.log(prices);
     let fruitsPrices = Object.fromEntries(prices.entries());
     console.log(fruitsPrices);
+
+    console.log(prices.has("Apples")); //if key exists
+    //clear to delete all key value
 };
 mapMethods();
+
+console.log("\n");
+
+//set operations
+const setMethods = function() {
+    let setOne = new Set();
+    const mike = {name: "Mike"};
+    const john = {name: "John"};
+    const mary = {name: "Mary"};
+
+    setOne.add(mike);
+    setOne.add(john);
+    setOne.add(mary);
+    setOne.add(john);
+    console.log(setOne);
+    console.log(setOne.size);
+
+    let setTwo = new Set([1, 2, 1, 4, 3]);
+    console.log(setTwo);
+
+    //iteration over set
+    for(let value of setTwo) {
+        console.log(value);
+    }
+
+    setTwo.forEach((value, valueAgain, set) => {
+        console.log(value * 2);
+    });
+    
+    console.log(setTwo);
+    setTwo.delete(2);
+    console.log(setTwo);
+    setTwo.clear(); // clear everything
+    console.log(setTwo);
+
+    //set entries, values, keys
+    setTwo.add(1).add(2).add(2).add(4);
+    let iterator1 = setTwo.keys();
+    for(let key of iterator1) {
+        console.log(key);
+    }
+    iterator1 = setTwo.values();
+    for(let value of iterator1) {
+        console.log(value);
+    }
+
+    //array to set
+    let array1 = [1, 2, 3, 4, 2, 3];
+    setTwo = new Set(array1);
+    console.log(setTwo);
+};
+setMethods();
+
+console.log("\n");
+
+//scheduling
+
+const scheduling = function() {
+    //setTimeout ==> executed only once
+    console.log("First statement");
+    function testFunction() {
+        console.log("2nd statement");
+    }
+    setTimeout(testFunction, 3000);
+    console.log("Third statment");
+
+    function withArg(fName, lName) {
+        console.log(`${fName} ${lName}`);
+    }
+    setTimeout(withArg, 2000, "H", "M"); //use of string is not recommended ==> use arrow function
+
+    setTimeout(() => {
+        console.log("4th statement");
+    }, 4000);
+
+    //cancelling timer
+    let timerId = setTimeout(() => {
+        console.log("5th statement"); //never executed
+    }, 1000);
+    console.log(timerId);
+    clearTimeout(timerId);
+    console.log(timerId);
+
+    //setInterval
+    timerId = setInterval(() => {
+        console.log("Repeat after 2sec", 2000);
+    }, 2000);
+
+    function stopInt() {
+        clearInterval(timerId); // ==> stop the setInterval
+    }
+    setTimeout(stopInt, 10000);
+};
+scheduling();
