@@ -689,10 +689,32 @@ const scheduling = function() {
     }
     setTimeout(stopInt, 10000);
 };
-scheduling();
+// scheduling();
 
 console.log("\n");
 
 //import and export
 sayHi("John");
 sayBye("mi");
+
+console.log("\n");
+
+//callbacks ==> function is executed after another function has finished
+function hello() {
+    console.log("Hello");
+}
+function helloAgain() {
+    setTimeout(() => {
+        console.log("Hello again");
+    }, 4000);
+}
+function thirdFunction(callback) {
+    console.log("Callback function");
+    callback();
+}
+const callbackFn = function() {
+    helloAgain(); //first hello is printed
+    hello(); //then hello again after 4 sec
+    thirdFunction(hello); // ==> first complete thirdFunction then execute callback function
+};
+callbackFn();
