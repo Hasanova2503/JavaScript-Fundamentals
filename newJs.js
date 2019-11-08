@@ -712,9 +712,66 @@ function thirdFunction(callback) {
     console.log("Callback function");
     callback();
 }
+//callback in callback in callback ... ==> callback hell or pyramid of doom
 const callbackFn = function() {
     helloAgain(); //first hello is printed
     hello(); //then hello again after 4 sec
     thirdFunction(hello); // ==> first complete thirdFunction then execute callback function
 };
 callbackFn();
+
+let promise = new Promise(function(resolve, reject) {
+    setTimeout(() => resolve("done"), 5000);
+});
+console.log(promise);
+
+setTimeout(() => console.log("\n"), 5000);
+
+//ajax call
+const buttonClick = function() {
+    document.getElementById("button").addEventListener("click", loadData);
+};
+buttonClick();
+
+function loadData() {
+    //create xhr object
+    const xhr = new XMLHttpRequest();
+
+    //open
+    xhr.open("GET", "data.txt", true);
+    // console.log("READY STATE: ", xhr.readyState);
+
+    //optional ==> spinners or loaders
+    xhr.onprogress = function() {
+        console.log("READY STATE: " + xhr.readyState);
+    }
+
+    xhr.onload = function() {
+        console.log("READY STATE: " + xhr.readyState);
+        if(this.status === 200) {
+            document.getElementById("output").innerHTML = 
+            `<h1>${this.responseText}</h1>`
+            console.log(this.responseText);
+        }
+    }
+
+    //older code using ready state
+    // xhr.onreadystatechange = function() {
+    //     console.log("READY STATE: " + xhr.readyState);
+    //     if(this.status === 200 && this.readyState === 4) {
+    //         console.log(this.responseText);
+    //     }
+    // }
+
+    //error
+    xhr.error = function() {
+        console.log("ERROR");
+    }
+
+    xhr.send();
+
+    //HTTP Status ==> 200 -> OK,  403 -> forbidden, 404 -> not found
+
+    //readyState values ==> 0->request not initialized, 1->server connection established, 2->request received, 3->processing request, 4->request finished and response in ready
+
+}
