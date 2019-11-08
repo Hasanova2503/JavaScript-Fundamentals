@@ -775,3 +775,112 @@ function loadData() {
     //readyState values ==> 0->request not initialized, 1->server connection established, 2->request received, 3->processing request, 4->request finished and response in ready
 
 }
+
+console.log("\n");
+
+//working with JSON and ajax
+const getSingleCustomer = function() {
+    document.getElementById("button1").addEventListener("click", onButton1Click);
+    document.getElementById("button1").addEventListener("mouseover", overFunc);
+    document.getElementById("button1").addEventListener("mouseout", outFunc);
+    
+    document.getElementById("button2").addEventListener("click", onButtonTwoClick);
+};
+getSingleCustomer();
+
+function overFunc() {
+    document.getElementById("button1").style.background = "red";
+}
+
+function outFunc() {
+    document.getElementById("button1").style.background = "";
+}
+
+function onButton1Click(e) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "customer.json", true);
+
+    xhr.onload = function() {
+        if(this.status === 200) {
+            //To read the json values ==> object
+            const customer = JSON.parse(this.responseText);
+            const output = 
+            `<ul>
+                <li>ID: ${customer.id}</li>
+                <li>Name: ${customer.name}</li>
+                <li>Company: ${customer.company}</li>
+            </ul>`;
+            document.getElementById("customer").innerHTML = output;
+            console.log(this.responseText);
+        }
+    }
+
+    xhr.send();
+}
+
+//load array of customers
+function onButtonTwoClick(e) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "customers.json", true);
+
+    xhr.onload = function() {
+        if(this.status === 200) {
+            //To read the json values ==> object
+            const customers = JSON.parse(this.responseText);
+
+            let output = "";
+
+            customers.forEach(function(customer) {
+                output += 
+                `<ul>
+                    <li>ID: ${customer.id}</li>
+                    <li>Name: ${customer.name}</li>
+                    <li>Company: ${customer.company}</li>
+                </ul>`;
+            });
+
+            document.getElementById("customers").innerHTML = output;
+            console.log(this.responseText);
+        }
+    }
+
+    xhr.send();
+}
+
+//chuck norris jokes
+const chuck = function() {
+    document.querySelector(".get-jokes").addEventListener("click", getJokes);
+};
+chuck();
+
+function getJokes(e) {
+    const number = document.querySelector('input[type="number"]').value;
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("Get", `http://api.icndb.com/jokes/random/${number}`, true);
+
+    xhr.onload = function() {
+        if(this.status === 200) {
+            const response = JSON.parse(this.responseText);
+
+            let output = "";
+            if(response.type === "success") {
+                response.value.forEach((joke) => {
+                    output += `<li>${joke.joke}</li>`
+                });
+            }
+            else {
+                output +=`<li>Something went wrong!!!!!</li>`;
+            }
+
+            document.querySelector(".jokes").innerHTML = output;
+        }
+    }
+
+    xhr.send();
+
+    e.preventDefault();
+}
