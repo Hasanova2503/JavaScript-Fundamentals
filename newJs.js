@@ -884,3 +884,71 @@ function getJokes(e) {
 
     e.preventDefault();
 }
+
+//callback sync
+const callBFn = function() {
+    const posts = [
+        {
+            name: "First",
+            topic: "Topic 1"
+        },
+        {
+            name: "Second",
+            topic: "Topic 2"
+        }
+    ];
+
+    function createPosts(post) {
+        setTimeout(() => {
+            posts.push(post);
+        }, 2000);
+    }
+
+    function getPosts() {
+        setTimeout(() => {
+            let output = "";
+            posts.forEach((post) => {
+                output += `<li>${post.name}</li>`;
+            });
+            document.getElementById("callbackPractice").innerHTML = output;
+        }, 1000);
+    }
+
+    createPosts({name: "Three", topic: "Topic 3"});
+    getPosts();
+}
+callBFn();
+
+//callback async
+const callbackAsync = function() {
+    const posts = [
+        {
+            name: "First",
+            topic: "Topic 1"
+        },
+        {
+            name: "Second",
+            topic: "Topic 2"
+        }
+    ];
+
+    function createPosts(post, callback) {
+        setTimeout(() => {
+            posts.push(post);
+            callback();
+        }, 2000);
+    }
+
+    function getPosts() {
+        setTimeout(() => {
+            let output = "";
+            posts.forEach((post) => {
+                output += `<li>${post.name}</li>`;
+            });
+            document.getElementById("callbackAsync").innerHTML = output;
+        }, 1000);
+    }
+
+    createPosts({name: "Three", topic: "Topic 3"}, getPosts);
+};
+callbackAsync();
