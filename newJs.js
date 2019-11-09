@@ -932,11 +932,19 @@ const callbackAsync = function() {
         }
     ];
 
-    function createPosts(post, callback) {
-        setTimeout(() => {
-            posts.push(post);
-            callback();
-        }, 2000);
+    function createPosts(post) {
+        return new Promise(function(resolve, reject) {
+            setTimeout(() => {
+                posts.push(post);
+                let error = false;
+                if(error) {
+                    reject("ERROR 404");
+                }
+                else {
+                    resolve();
+                }
+            }, 2000);
+        });
     }
 
     function getPosts() {
@@ -949,6 +957,70 @@ const callbackAsync = function() {
         }, 1000);
     }
 
-    createPosts({name: "Three", topic: "Topic 3"}, getPosts);
+    createPosts({name: "Three", topic: "Topic 3"})
+    .then(getPosts)
+    .catch(function(err) {
+        console.log(err);
+    });
 };
 callbackAsync();
+
+//get text from file using FETCH API
+const getTextFetch = function() {
+    document.getElementById("getTextButton").addEventListener("click", getText);
+    document.getElementById("getJSONButton").addEventListener("click", getJson);
+    document.getElementById("getAPIDataButton").addEventListener("click", getAPI);
+};
+getTextFetch();
+
+function getText() {
+    fetch("data.txt")
+    .then(function(res) {
+        return res.text();
+    })
+    .then(function(data) {
+        console.log(data);
+        document.getElementById("outputFetch").innerHTML = data;
+    })
+    .catch(function(err) {
+        console.log(err);
+    });
+}
+
+//get josn
+function getJson() {
+    fetch("customers.json")
+    .then(function(res) {
+        return res.json();
+    })
+    .then(function(data) {
+        console.log(data);
+        let output = "";
+        data.forEach(function(customer) {
+            output += `<li>${customer.name}</li>`
+        });
+        document.getElementById("outputFetch").innerHTML = output;
+    })
+    .catch(function(err) {
+        console.log(err);
+    });
+}
+
+//get API
+function getAPI() {
+    fetch("https://api.github.com/users")
+    .then(function(res) {
+        return res.json();
+    })
+    .then(function(data) {
+        console.log(data);
+        let output = "";
+        data.forEach(function(user) {
+            output += `<li>${user.login}</li>`
+        });
+        document.getElementById("outputFetch").innerHTML = output;
+    })
+    .catch(function(err) {
+        console.log(err);
+    });
+}
