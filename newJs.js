@@ -1024,3 +1024,38 @@ function getAPI() {
         console.log(err);
     });
 }
+
+console.log("\n");
+
+//arrow functions
+const arrowFunctionPractice = () => {
+    const func = function() {
+        console.log("In arrow");
+    }
+    func();
+
+    // const func2 = () => {
+    //     console.log("In arrow");
+    // }
+
+    //shorter
+    // const func2 = () => console.log("In arrow");
+
+    //return
+    // const func2 = () => "Hello from arrow";
+
+    //return object
+    // const func2 = () => ({name: "HMS"});
+
+    //single parameter
+    // const func2 = name => `Hello ${name}`;
+
+    //mulitple parameter
+    const func2 = (fName, lName) => `Hello ${fName} ${lName}`;
+
+    // func2();
+    // console.log(func2());
+    console.log(func2("BRAD", "pitt"));
+    
+};
+arrowFunctionPractice();
