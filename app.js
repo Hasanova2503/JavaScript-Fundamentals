@@ -48,3 +48,26 @@ function(err, response) {
         
     }
 });
+
+const newHTTP = new NewEasyHTTP();
+
+// newHTTP.get(`https://jsonplaceholder.typicode.com/posts`)
+//     .then(data => console.log(data))
+//     .catch(err => console.log(err));
+
+//user data
+const data2 = {
+    userName: "HMS",
+    mail: "abcd"
+};
+// newHTTP.post(`https://jsonplaceholder.typicode.com/posts`, data2)
+//     .then(data => console.log(data))
+//     .catch(err => console.log(err));
+
+// newHTTP.put(`https://jsonplaceholder.typicode.com/posts/2`, data2)
+//     .then(data => console.log(data))
+//     .catch(err => console.log(err));
+
+newHTTP.delete(`https://jsonplaceholder.typicode.com/posts/2`)
+    .then(data => console.log(data))
+    .catch(err => console.log(err));

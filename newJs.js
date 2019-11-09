@@ -975,25 +975,19 @@ getTextFetch();
 
 function getText() {
     fetch("data.txt")
-    .then(function(res) {
-        return res.text();
-    })
-    .then(function(data) {
+    .then(res => res.text())
+    .then(data => {
         console.log(data);
         document.getElementById("outputFetch").innerHTML = data;
     })
-    .catch(function(err) {
-        console.log(err);
-    });
+    .catch(err => console.log(err));
 }
 
 //get josn
 function getJson() {
     fetch("customers.json")
-    .then(function(res) {
-        return res.json();
-    })
-    .then(function(data) {
+    .then(res => res.json())
+    .then(data => {
         console.log(data);
         let output = "";
         data.forEach(function(customer) {
@@ -1001,9 +995,7 @@ function getJson() {
         });
         document.getElementById("outputFetch").innerHTML = output;
     })
-    .catch(function(err) {
-        console.log(err);
-    });
+    .catch(err => console.log(err));
 }
 
 //get API
@@ -1059,3 +1051,17 @@ const arrowFunctionPractice = () => {
     
 };
 arrowFunctionPractice();
+
+const asyncAwait = () => {
+    async function getUsers() {
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+
+        //when await is resolved
+        const data = await response.json();
+
+        //when data is resolved
+        return data;
+    }
+    getUsers().then(users => console.log(users));
+};
+asyncAwait();
