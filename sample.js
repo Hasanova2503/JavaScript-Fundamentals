@@ -1539,5 +1539,6 @@ function sayHi(name) {
 function sayBye(name) {
   console.log(`Bye ${name}`);
 }
+sayBye();
 
 export {sayHi, sayBye};

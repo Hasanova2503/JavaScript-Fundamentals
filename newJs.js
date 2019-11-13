@@ -1,5 +1,6 @@
 'use strict';
 import {sayHi, sayBye} from "./helloJs.js";
+sayHi("Hasan");
 // Array methods
 const arrayMethods = function() {
     // Array from
@@ -1065,3 +1066,38 @@ const asyncAwait = () => {
     getUsers().then(users => console.log(users));
 };
 asyncAwait();
+
+function RandomPerson(name) {
+    this.name = name;
+    function getName() {
+        return `Hello ${this.name}`;
+    }
+    return {
+        name: name,
+        getName: getName
+    };
+}
+
+RandomPerson.prototype.greeting = function() {
+    return `Hello ${this.name}`;
+}
+
+const brad = new RandomPerson("Brad");
+console.log(brad.getName());
+// console.log(brad.greeting());
+
+function User(name, age) {
+    this.name = name;
+    this.age = age;
+    this.get = () => {
+        return `Helllllll`;
+    }
+}
+let newUser = new User("HMS", 22);
+console.log(newUser.name + " " + newUser.age);
+console.log(newUser.get());
+
+// const asyncTextJSON = () => {
+//     console.log("HELL");
+// }
+// asyncTextJSON();
