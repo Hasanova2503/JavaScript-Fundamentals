@@ -108,3 +108,28 @@ async function awaitFn() {
 
     return data
 }
+
+class User {
+    age = 22;
+    constructor(name) {
+        this.name = name;
+    }
+    get() {
+        return `Hello ${this.name} ${this.age}`;
+    }
+}
+
+const hash = new User("HASH");
+console.log(hash.get());
+console.log(hash);
+console.log(Object.getOwnPropertyNames(User.prototype));
+
+function UserFn(name) {
+    this.name = name;
+    this.age = 12;
+}
+UserFn.prototype.get = function() {
+    return `Hello ${this.name} ${this.age}`;
+}
+const sap = new UserFn("Sap");
+console.log(sap);
